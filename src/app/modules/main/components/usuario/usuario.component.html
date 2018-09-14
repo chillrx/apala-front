@@ -1,0 +1,33 @@
+<button mat-mini-fab color="warn" (click)="updateUsuario(true)">
+    <mat-icon>add</mat-icon>
+</button>
+<div class="table100 ver2 m-b-110" style="margin: 20px;">
+    <div class="table100-head">
+        <table>
+            <thead>
+                <tr class="row100 head">
+                    <th class="cell100 column1 bolder">Nome</th>
+                    <th class="cell100 column2 bolder">Email</th>
+                    <th class="cell100 column3"></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    <div class="table100-body js-pscroll">
+        <table>
+            <tbody>
+                <tr class="row100 body" *ngFor="let user of users; let i = index;">
+                    <td class="cell100 column1 apala-color">{{user.nome}}</td>
+                    <td class="cell100 column2 apala-color">{{user.email}}</td>
+                    <td class="cell100 column3">
+                        <mat-icon class="pointer apala-color" (click)="deleteUsuario(i)">delete</mat-icon>
+                    </td>
+                    <td class="cell100 column3">
+                        <mat-icon class="pointer apala-color" (click)="updateUsuario(i)">edit</mat-icon>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div mat-dialog-title class="header-dialog">
+  <p>{{ this.data ? 'Editar usuário' : 'Adicionar usuário' }}</p>
+  <button mat-icon-button>
+    <mat-icon (click)="dialogRef.close()">close</mat-icon>
+  </button>
+</div>
+
+<form [formGroup]="usuarioForm">
+  <mat-form-field appearance="outline" color="warn">
+    <mat-label>Nome</mat-label>
+    <input matInput placeholder="Digite o nome de usuário" formControlName="nome" autocomplete="new-password" focus>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" color="warn">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Endereço de email" formControlName="email" autocomplete="new-password">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" color="warn">
+    <mat-label>Senha</mat-label>
+    <input matInput placeholder="Digite a senha" type="password" formControlName="senha" autocomplete="new-password">
+  </mat-form-field>
+
+  <button mat-raised-button (click)="updateUsuario()" [disabled]="usuarioForm.invalid">{{ data ? 'Editar' : 'Adicionar'}}</button>
+</form>

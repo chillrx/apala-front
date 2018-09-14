@@ -1,0 +1,70 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import './assets/css/reset.css';
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Exo+2');
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+mat-icon {
+    vertical-align: middle;
+}
+
+mat-form-field {
+    width: 100%;
+    margin-inline-end: 10px;
+}
+
+snack-bar-container.error {
+    display: flex;
+    justify-content: center;
+    background: #bf0411;
+}
+  
+snack-bar-container.success {
+    display: flex;
+    justify-content: center;
+    background: green;
+}
+  
+
+.flex {
+    display: flex;
+    width: 100%;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center
+}
+
+.wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.wrapper {
+    transition: all;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+
+.apala-color {
+    color: #fa4251 !important;
+}
+
+.apala-button {
+    background-color: #bf0411;
+    color: white;
+}

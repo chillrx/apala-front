@@ -1,0 +1,34 @@
+<mat-card class="overall-card">
+  <button mat-mini-fab color="warn" class="addCampanhaButton" (click)="addParceiro()">
+    <mat-icon>add</mat-icon>
+  </button>
+
+  <div class="wrap justify-center">
+    <mat-card class="campanha-card" *ngFor="let parceiro of parceiros; let i = index">
+      <mat-card-header>
+        <mat-card-title>
+          <p>{{parceiro.nome}} </p>
+        </mat-card-title>
+      </mat-card-header>
+
+      <img [src]="parceiro.foto === null || parceiro.foto === '' ? 'http://g.glbimg.com/og/gs/gsat3/static_files/imagens/gloob/404.png' : parceiro.foto">
+      
+      <div class="flex-wrap">
+        <div>
+          <p>
+            {{parceiro.site}}
+          </p>
+
+          <br>
+          
+          <p>{{parceiro.posicao}}</p>
+        </div>
+
+        <div>
+          <button mat-button (click)="editParceiro(i)">Editar</button>
+          <button mat-button (click)="deleteParceiro(i)">Excluir</button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</mat-card>

@@ -1,0 +1,36 @@
+<div mat-dialog-title class="header-dialog">
+  <p>{{ this.data ? 'Editar campanha' : 'Adicionar campanha' }}</p>
+  <button mat-icon-button>
+    <mat-icon (click)="dialogRef.close()">close</mat-icon>
+  </button>
+</div>
+
+<form [formGroup]="campanhaForm">
+  <mat-form-field appearance="outline" color="warn">
+    <mat-label>Titulo</mat-label>
+    <input matInput placeholder="Digite o titulo" formControlName="titulo" focus required>
+  </mat-form-field>
+  <div class="flex">
+    <mat-form-field appearance="outline" color="warn">
+      <mat-label>Data de início</mat-label>
+      <input matInput placeholder="Digite a data de início e hora" formControlName="inicio" [textMask]="{mask: dateAndHour}" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" color="warn">
+      <mat-label>Data de fim</mat-label>
+      <input matInput placeholder="Digita a data final e hora" formControlName="fim" [textMask]="{mask: dateAndHour}" required>
+    </mat-form-field>
+  </div>
+
+  <mat-form-field appearance="outline" color="warn">
+    <mat-label>Link da imagem</mat-label>
+    <input matInput placeholder="Endereço da imagem" formControlName="imagem">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" color="warn">
+    <mat-label>Descrição</mat-label>
+    <textarea matInput placeholder="Digite a descrição" formControlName="descricao" required></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button (click)="addCampanha()" [disabled]="campanhaForm.invalid">{{ data ? 'Editar' : 'Adicionar'}}</button>
+</form>

@@ -1,0 +1,34 @@
+<mat-card class="overall-card">
+  <button mat-mini-fab color="warn" class="addCampanhaButton" (click)="addCampanha()">
+    <mat-icon>add</mat-icon>
+  </button>
+
+  <div class="wrap justify-center">
+    <mat-card class="campanha-card" *ngFor="let campanha of campanhas.slice().reverse(); let i = index">
+      <mat-card-header>
+        <mat-card-title>
+          <p>{{campanha.titulo}}</p>
+        </mat-card-title>
+      </mat-card-header>
+
+      <img [src]="campanha.imagem === null || campanha.imagem === '' ? 'http://g.glbimg.com/og/gs/gsat3/static_files/imagens/gloob/404.png' : campanha.imagem">
+      
+      <div class="flex-wrap">
+        <div>
+          <p>
+            {{campanha.descricao}}
+          </p>
+
+          <br>
+          
+          <p>{{campanha.inicio | formatDateDmy}} até {{campanha.fim | formatDateDmy}}</p>
+        </div>
+
+        <div>
+          <button mat-button (click)="editCampanha(i)">Editar</button>
+          <button mat-button (click)="deleteCampanha(i)">Excluir</button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</mat-card>

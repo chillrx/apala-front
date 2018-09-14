@@ -1,0 +1,27 @@
+<mat-card class="overall-card">
+  <button mat-mini-fab color="warn" class="addCampanhaButton" (click)="addInstituicao()">
+    <mat-icon>add</mat-icon>
+  </button>
+
+  <div class="wrap justify-center">
+    <mat-card class="campanha-card" *ngFor="let instituicao of instituicoes; let i = index">
+      <mat-card-header>
+        <mat-card-title>
+          <p>{{instituicao.titulo}}</p>
+        </mat-card-title>
+      </mat-card-header>
+
+      <div class="flex-wrap">
+        <div>
+          <p>
+            {{instituicao.descricao}}
+          </p>
+        </div>
+
+        <div>
+          <button mat-button (click)="editInstituicao(i)">Editar</button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</mat-card>

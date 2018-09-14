@@ -1,0 +1,22 @@
+<div id="background">
+  <mat-card>
+    <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+      <img src="assets/img/logoapala.svg" height="70px">
+
+      <mat-form-field appearance="outline">
+        <mat-icon matPrefix>person</mat-icon>
+        <input matInput formControlName="user" placeholder="Email">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-icon matPrefix>lock</mat-icon>
+        <input matInput formControlName="password" type="password" placeholder="Senha">
+      </mat-form-field>
+
+      <div>
+        <button mat-raised-button class="apala-button" [disabled]="disabled || loginForm.invalid">Entrar</button>
+      </div>
+    </form>
+    
+  </mat-card>
+</div>

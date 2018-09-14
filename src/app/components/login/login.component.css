@@ -1,0 +1,40 @@
+mat-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 21em;
+    z-index: 1;
+    margin: 10px;
+}
+
+mat-card form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 21em;
+}
+
+mat-card img {
+    padding-bottom: 20px;
+}
+
+form div {
+    display: flex;
+    align-self: flex-start;
+    width: 100%;
+}
+
+#background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+@media screen and (max-height: 320px) {
+    .mat-form-field-wrapper, mat-card img {
+        padding-bottom: 0;
+    }
+}
