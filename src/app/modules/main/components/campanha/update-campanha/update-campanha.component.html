@@ -32,5 +32,5 @@
     <textarea matInput placeholder="Digite a descrição" formControlName="descricao" required></textarea>
   </mat-form-field>
 
-  <button mat-raised-button (click)="addCampanha()" [disabled]="campanhaForm.invalid">{{ data ? 'Editar' : 'Adicionar'}}</button>
+  <button mat-raised-button (click)="addCampanha()" [disabled]="campanhaForm.invalid" class="mb1">{{ data ? 'Editar' : 'Adicionar'}}</button>
 </form>

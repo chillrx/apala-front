@@ -13,7 +13,7 @@
 
   <mat-form-field appearance="outline" color="warn">
     <mat-label>Link da imagem</mat-label>
-    <input matInput placeholder="Endereço da imagem" formControlName="imagem">
+    <input matInput placeholder="Endereço da imagem" formControlName="foto">
   </mat-form-field>
 
   <mat-form-field appearance="outline" color="warn">
@@ -26,5 +26,5 @@
     <input type="number" matInput placeholder="Digite a posição" formControlName="posicao" focus required>
   </mat-form-field>
 
-  <button mat-raised-button (click)="addParceiro()" [disabled]="parceiroForm.invalid">{{ data ? 'Editar' : 'Adicionar'}}</button>
+  <button mat-raised-button (click)="addParceiro()" [disabled]="parceiroForm.invalid" class="mb1">{{ data ? 'Editar' : 'Adicionar'}}</button>
 </form>

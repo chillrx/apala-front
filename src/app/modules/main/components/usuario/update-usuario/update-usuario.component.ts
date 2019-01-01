@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { CrudService } from '../../../shared/services/nodejs/crud.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { CrudService } from './../../../../shared/services/nodejs/crud.service';
 
 @Component({
   selector: 'app-update-usuario',

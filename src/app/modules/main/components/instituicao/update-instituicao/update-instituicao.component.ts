@@ -1,8 +1,8 @@
-import { TransformService } from './../../../shared/services/transform.service';
+import { CrudService } from './../../../../shared/services/nodejs/crud.service';
 import { Component, OnInit, Inject } from '@angular/core';
-import { CrudService } from '../../../shared/services/nodejs/crud.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormControl } from '@angular/forms';
+import { TransformService } from 'src/app/modules/shared/services/transform.service';
 
 @Component({
   selector: 'app-update-instituicao',

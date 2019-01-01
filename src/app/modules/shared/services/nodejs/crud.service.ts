@@ -11,14 +11,14 @@ export class CrudService {
     'headers': new Headers({
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'token': JSON.parse(JSON.parse(sessionStorage.user)._body).token
+      'token': sessionStorage.user ? JSON.parse(JSON.parse(sessionStorage.user)._body).token : ''
     })
   });
 
   constructor(
     private _http: Http,
     private _snackBar: MatSnackBar
-  ) { }
+  ) {}
 
   create = (params) => new Promise((resolve, reject) => {
     this._http
@@ -28,7 +28,7 @@ export class CrudService {
         this.optionsToAuth
       ).subscribe(res => {
         let aux = JSON.parse(res['_body']);
-        
+
         if (aux.message)
           this._snackBar.open(aux.message, '', {
             duration: 2000,
@@ -39,7 +39,7 @@ export class CrudService {
             duration: 2000,
             panelClass: ['success']
           });
-          
+
         if (aux.message) aux = undefined;
 
         resolve(aux);
@@ -59,31 +59,31 @@ export class CrudService {
     const route: string = params.route;
     const paramToDelete: any = params.paramToDelete;
 
-      this._http.delete(
-        environment.crudServiceUrl + params.route + '/' + paramToDelete,
-        this.optionsToAuth)
-        .subscribe(res => {
-          const aux = JSON.parse(res['_body']);
+    this._http.delete(
+      environment.crudServiceUrl + params.route + '/' + paramToDelete,
+      this.optionsToAuth)
+      .subscribe(res => {
+        const aux = JSON.parse(res['_body']);
 
-          if (aux.message)
-            this._snackBar.open(aux.message, '', {
-              duration: 2000,
-              panelClass: ['error']
-            });
-          else
-            this._snackBar.open('Dados deletados com sucesso!', '', {
-              duration: 2000,
-              panelClass: ['success']
-            });
-
-          resolve(aux);
-        }, rej => {
-          reject({
-            cod: 'error-c-01',
-            message: 'message',
-            apiBody: 'json'
+        if (aux.message)
+          this._snackBar.open(aux.message, '', {
+            duration: 2000,
+            panelClass: ['error']
           });
+        else
+          this._snackBar.open('Dados deletados com sucesso!', '', {
+            duration: 2000,
+            panelClass: ['success']
+          });
+
+        resolve(aux);
+      }, rej => {
+        reject({
+          cod: 'error-c-01',
+          message: 'message',
+          apiBody: 'json'
         });
+      });
   })
 
   update = (params) => new Promise((resolve, reject) => {
@@ -115,6 +115,28 @@ export class CrudService {
             panelClass: ['error']
           });
       });
+  })
+
+  // Novos verbos
+
+  get = (route) => new Promise((resolve, reject) => {
+    this._http.get(environment.crudServiceUrl + route, this.optionsToAuth).subscribe(res => resolve(JSON.parse(res['_body'])), rej => reject(JSON.parse(rej['_body'])));
+  })
+
+  // delete = (route) => new Promise((resolve, reject) => {
+  //   this._http.delete(environment.crudServiceUrl + route, this.optionsToAuth).subscribe(res => resolve(JSON.parse(res['_body'])), rej => reject(JSON.parse(rej['_body'])));
+  // })
+
+  post = (route, data) => new Promise((resolve, reject) => {
+    this._http.post(environment.crudServiceUrl + route, data, this.optionsToAuth).subscribe(res => resolve(JSON.parse(res['_body'])), rej => reject(JSON.parse(rej['_body'])));
+  })
+
+  patch = (route, data) => new Promise((resolve, reject) => {
+    this._http.patch(environment.crudServiceUrl + route, data, this.optionsToAuth).subscribe(res => resolve(JSON.parse(res['_body'])), rej => reject(JSON.parse(rej['_body'])));
+  })
+
+  put = (route, data) => new Promise((resolve, reject) => {
+    this._http.post(environment.crudServiceUrl + route, data, this.optionsToAuth).subscribe(res => resolve(JSON.parse(res['_body'])), rej => reject(JSON.parse(rej['_body'])));
   })
 
 }

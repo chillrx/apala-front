@@ -1,8 +1,8 @@
-import { UpdateParceiroComponent } from './../update-parceiro/update-parceiro.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { CrudService } from '../../../shared/services/nodejs/crud.service';
 import { DeleteConfirmComponent } from '../../../shared/components/delete-confirm/delete-confirm.component';
+import { UpdateParceiroComponent } from './update-parceiro/update-parceiro.component';
 
 @Component({
   selector: 'app-parceiro',

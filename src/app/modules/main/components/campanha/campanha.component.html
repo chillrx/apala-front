@@ -4,7 +4,7 @@
   </button>
 
   <div class="wrap justify-center">
-    <mat-card class="campanha-card" *ngFor="let campanha of campanhas.slice().reverse(); let i = index">
+    <mat-card class="campanha-card" *ngFor="let campanha of campanhas | reverse; let i = index">
       <mat-card-header>
         <mat-card-title>
           <p>{{campanha.titulo}}</p>

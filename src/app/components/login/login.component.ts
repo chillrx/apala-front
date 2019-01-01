@@ -1,12 +1,8 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material';
-
-/**
- * Services
- */
 import { AuthenticationService } from './../../modules/shared/services/nodejs/authentication.service';
+import { MatSnackBar } from '@angular/material';
 
 
 @Component({

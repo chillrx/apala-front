@@ -1,6 +1,6 @@
+import { UpdateUsuarioComponent } from './../usuario/update-usuario/update-usuario.component';
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../../../shared/services/nodejs/crud.service';
-import { UpdateUsuarioComponent } from '../update-usuario/update-usuario.component';
 import { MatDialog } from '@angular/material';
 import { DeleteConfirmComponent } from '../../../shared/components/delete-confirm/delete-confirm.component';
 

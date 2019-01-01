@@ -1,4 +1,12 @@
+form {
+    max-height: 60vh;
+}
+
 .header-dialog {
     display: flex;
     justify-content: space-between;
+}
+
+.mb1 {
+    margin-bottom: 1rem;
 }

@@ -1,8 +1,8 @@
+import { UpdateInstituicaoComponent } from './update-instituicao/update-instituicao.component';
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../../../shared/services/nodejs/crud.service';
 import { MatDialog } from '@angular/material';
 import { DeleteConfirmComponent } from '../../../shared/components/delete-confirm/delete-confirm.component';
-import { UpdateInstituicaoComponent } from '../update-instituicao/update-instituicao.component';
 
 @Component({
   selector: 'app-instituicao',

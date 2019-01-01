@@ -21,5 +21,5 @@
     <input matInput placeholder="Digite a senha" type="password" formControlName="senha" autocomplete="new-password">
   </mat-form-field>
 
-  <button mat-raised-button (click)="updateUsuario()" [disabled]="usuarioForm.invalid">{{ data ? 'Editar' : 'Adicionar'}}</button>
+  <button mat-raised-button (click)="updateUsuario()" [disabled]="usuarioForm.invalid" class="mb1">{{ data ? 'Editar' : 'Adicionar'}}</button>
 </form>

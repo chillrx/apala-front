@@ -1,8 +1,9 @@
+import { Http, RequestOptions, Headers } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../../../shared/services/nodejs/crud.service';
 import { MatDialog } from '@angular/material';
-import { UpdateCampanhaComponent } from '../update-campanha/update-campanha.component';
 import { DeleteConfirmComponent } from '../../../shared/components/delete-confirm/delete-confirm.component';
+import { UpdateCampanhaComponent } from './update-campanha/update-campanha.component';
 
 @Component({
   selector: 'app-campanha',
@@ -11,8 +12,16 @@ import { DeleteConfirmComponent } from '../../../shared/components/delete-confir
 })
 export class CampanhaComponent implements OnInit {
   public campanhas: any;
+  public optionsToAuth = new RequestOptions({
+    'headers': new Headers({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Headers': '*'
+    })
+  });
 
   constructor(private _crud: CrudService,
+    private http: Http,
     public _dialog: MatDialog) {
     this._crud.read({
       route: 'campanha'
@@ -56,7 +65,7 @@ export class CampanhaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this._crud.delete({ route: 'campanha', paramToDelete: [this.campanhas[i].id] }).then(res => {});
+        this._crud.delete({ route: 'campanha', paramToDelete: [this.campanhas[i].id] }).then(res => { });
 
         this.campanhas.splice(i, 1);
       }
