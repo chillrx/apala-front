@@ -15,7 +15,6 @@
     "node": "~8.10.0",
     "npm": "~3.10.5"
   },
-  "author": "Victor Machado",
   "private": true,
   "dependencies": {
     "@angular/animations": "^7.1.4",
