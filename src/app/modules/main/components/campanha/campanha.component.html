@@ -4,7 +4,7 @@
   </button>
 
   <div class="wrap justify-center">
-    <mat-card class="campanha-card" *ngFor="let campanha of campanhas | reverse; let i = index">
+    <mat-card class="campanha-card" *ngFor="let campanha of campanhas; let i = index">
       <mat-card-header>
         <mat-card-title>
           <p>{{campanha.titulo}}</p>
@@ -14,7 +14,7 @@
       <img [src]="campanha.imagem === null || campanha.imagem === '' ? 'http://g.glbimg.com/og/gs/gsat3/static_files/imagens/gloob/404.png' : campanha.imagem">
       
       <div class="flex-wrap">
-        <div>
+        <div class="wd100">
           <p>
             {{campanha.descricao}}
           </p>

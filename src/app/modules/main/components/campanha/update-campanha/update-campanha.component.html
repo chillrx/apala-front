@@ -13,7 +13,7 @@
   <div class="flex">
     <mat-form-field appearance="outline" color="warn">
       <mat-label>Data de início</mat-label>
-      <input matInput placeholder="Digite a data de início e hora" formControlName="inicio" [textMask]="{mask: dateAndHour}" required>
+      <input matInput placeholder="Digite a data de início e hora" minlength="10" formControlName="inicio" [textMask]="{mask: dateAndHour}" required>
     </mat-form-field>
 
     <mat-form-field appearance="outline" color="warn">

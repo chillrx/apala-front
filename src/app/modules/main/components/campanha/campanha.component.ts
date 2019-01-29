@@ -1,75 +1,74 @@
-import { Http, RequestOptions, Headers } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../../../shared/services/nodejs/crud.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 import { DeleteConfirmComponent } from '../../../shared/components/delete-confirm/delete-confirm.component';
 import { UpdateCampanhaComponent } from './update-campanha/update-campanha.component';
 
 @Component({
-  selector: 'app-campanha',
-  templateUrl: './campanha.component.html',
-  styleUrls: ['./campanha.component.css']
+    selector: 'app-campanha',
+    templateUrl: './campanha.component.html',
+    styleUrls: ['./campanha.component.css']
 })
 export class CampanhaComponent implements OnInit {
-  public campanhas: any;
-  public optionsToAuth = new RequestOptions({
-    'headers': new Headers({
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Access-Control-Allow-Headers': '*'
-    })
-  });
+    public campanhas: any;
 
-  constructor(private _crud: CrudService,
-    private http: Http,
-    public _dialog: MatDialog) {
-    this._crud.read({
-      route: 'campanha'
+    constructor(
+        private _crud: CrudService,
+        public _dialog: MatDialog,
+        public snackbar: MatSnackBar
+    ) {
+        this.getForm();
     }
-    ).then(res => {
-      this.campanhas = res;
-    });
-  }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
-  addCampanha = () => {
-    const dialogRef = this._dialog.open(UpdateCampanhaComponent, {
-      height: 'auto',
-      width: 'auto'
-    });
+    getForm = () => this._crud.get('campanha').then(res => this.campanhas = res);
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) this.campanhas.push(result);
-    });
-  }
+    addCampanha = () => {
+        const dialogRef = this._dialog.open(UpdateCampanhaComponent, {
+            height: 'auto',
+            width: 'auto'
+        });
 
-  editCampanha = (i) => {
-    const dialogRef = this._dialog.open(UpdateCampanhaComponent, {
-      height: 'auto',
-      width: 'auto',
-      data: Object.assign({}, this.campanhas[i])
-    });
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) this.getForm();
+        });
+    }
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) this.campanhas[i] = result;
-    });
-  }
+    editCampanha = (i) => {
+        const dialogRef = this._dialog.open(UpdateCampanhaComponent, {
+            height: 'auto',
+            width: 'auto',
+            data: Object.assign({}, this.campanhas[i])
+        });
 
-  deleteCampanha = (i) => {
-    const dialogRef = this._dialog.open(DeleteConfirmComponent, {
-      height: 'auto',
-      width: 'auto'
-    });
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) this.getForm();
+        });
+    }
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this._crud.delete({ route: 'campanha', paramToDelete: [this.campanhas[i].id] }).then(res => { });
+    deleteCampanha = (i) => {
+        const dialogRef = this._dialog.open(DeleteConfirmComponent, {
+            height: 'auto',
+            width: 'auto'
+        });
 
-        this.campanhas.splice(i, 1);
-      }
-    });
-  }
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                this._crud.delete('campanha/' + this.campanhas[i].id).then(res =>
+                    this.snackbar.open('Dados deletados com sucesso!', '', {
+                        duration: 2000,
+                        panelClass: ['success']
+                    })
+                    , rej => this.snackbar.open('Erro ao deletar os dados!', '', {
+                        duration: 2000,
+                        panelClass: ['error']
+                    }));
+
+                this.getForm();
+            }
+        });
+    }
 
 }
