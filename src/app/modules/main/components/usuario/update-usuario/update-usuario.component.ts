@@ -29,9 +29,9 @@ export class UpdateUsuarioComponent implements OnInit {
     }
 
     updateUsuario = () => {
+        this.dialogRef.close(true);
         if (!this.data)
             return this._crud.post('usuarios/registrar', this.usuarioForm.value).then(res => {
-                this.dialogRef.close(res);
                 this.snackbar.open('Dados registrados com sucesso!', '', {
                     duration: 2000,
                     panelClass: ['success']
@@ -42,7 +42,7 @@ export class UpdateUsuarioComponent implements OnInit {
             }));
 
         this._crud.put('usuarios' + '/' + this.data.id, this.usuarioForm.value).then(res => {
-            this.dialogRef.close(res);
+
             this.snackbar.open('Dados alterados com sucesso!', '', {
                 duration: 2000,
                 panelClass: ['success']

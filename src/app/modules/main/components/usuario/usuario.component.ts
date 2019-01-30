@@ -29,14 +29,15 @@ export class UsuarioComponent implements OnInit {
     });
 
     updateUsuario: any = (i) => {
-        if (i !== true) {
-            // const dialogRef = this._dialog.open(UpdateUsuarioComponent, {
-            //   height: 'auto',
-            //   width: '600px',
-            //   data: this.users[i]
-            // });
-            // dialogRef.afterClosed().subscribe(result => {
-            // });
+        if (i != undefined) {
+            const dialogRef = this._dialog.open(UpdateUsuarioComponent, {
+                height: 'auto',
+                width: 'auto',
+                data: this.users[i]
+            });
+            dialogRef.afterClosed().subscribe(result => {
+                if (result) this.getForm();
+            });
         } else {
             const dialogRef = this._dialog.open(UpdateUsuarioComponent, {
                 height: 'auto',
@@ -71,4 +72,5 @@ export class UsuarioComponent implements OnInit {
             }
         });
     }
+
 }
