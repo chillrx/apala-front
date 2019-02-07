@@ -35,8 +35,16 @@ snack-bar-container.success {
     width: 100%;
 }
 
+.wd100 {
+    width: 100%;
+}
+
 .align-center {
     align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
 }
 
 .justify-center {

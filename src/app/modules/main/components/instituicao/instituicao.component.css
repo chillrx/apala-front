@@ -92,6 +92,10 @@ img {
     margin-bottom: 20px;
 }
 
+.title {
+    font-weight: bold;
+}
+
 @media screen and (max-width: 480px) {
 
     img {

@@ -42,7 +42,7 @@ export class ParceiroComponent implements OnInit {
         });
 
         dialogRef.afterClosed().subscribe(result => {
-            if (result) this.parceiros[i] = result;
+            if (result) this._crud.get('parceiro').then(res => this.parceiros = res);
         });
     }
 
