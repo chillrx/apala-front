@@ -23,6 +23,8 @@ export class InstituicaoComponent implements OnInit {
     ngOnInit() {
     }
 
+    getForm = () => this._crud.get('instituicao').then(res => this.instituicoes = res);
+
     addInstituicao = () => {
         const dialogRef = this._dialog.open(UpdateInstituicaoComponent, {
             height: 'auto',
@@ -30,7 +32,7 @@ export class InstituicaoComponent implements OnInit {
         });
 
         dialogRef.afterClosed().subscribe(result => {
-            if (result) this.instituicoes.push(result);
+            if (result) this.getForm();
         });
     }
 
@@ -42,7 +44,7 @@ export class InstituicaoComponent implements OnInit {
         });
 
         dialogRef.afterClosed().subscribe(result => {
-            if (result) this.instituicoes[i] = result;
+            if (result) this.getForm();
         });
     }
 
