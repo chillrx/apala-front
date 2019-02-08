@@ -27,6 +27,9 @@ const routes: Routes = [{
   path: 'main',
   loadChildren: './modules/main/main.module#MainModule',
   canActivate: [AuthGuard]
+}, {
+    path: '**',
+    component: LoginComponent
 }];
 
 @NgModule({
