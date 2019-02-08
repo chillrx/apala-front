@@ -30,6 +30,8 @@ export class UpdateInstituicaoComponent implements OnInit {
     }
 
     addInstituicao = () => {
+        this.dialogRef.close(true);
+
         if (!this.data)
             return this._crud.post('instituicao', this.instituicaoForm.value).then(res => {
                 this.dialogRef.close(res);
@@ -47,7 +49,7 @@ export class UpdateInstituicaoComponent implements OnInit {
             this.snackbar.open('Dados alterados com sucesso!', '', {
                 duration: 2000,
                 panelClass: ['success']
-            })
+            });
         }, rej => this.snackbar.open('Erro ao alterar dados!', '', {
             duration: 2000,
             panelClass: ['error']

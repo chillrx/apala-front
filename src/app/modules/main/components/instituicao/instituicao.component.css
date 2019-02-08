@@ -12,7 +12,6 @@ mat-card-header {
     justify-content: center;
 }
 
-
 mat-card-content p {
     display: flex;
     justify-content: center;
@@ -32,29 +31,13 @@ img {
 .flex-wrap {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: column;
     word-break: break-word;
-}
-
-.flex-wrap div:nth-child(1) {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
 }
 
 .flex-wrap p {
     justify-content: center;
     text-align: justify;
     display: flex;
-}
-
-.flex-wrap div:nth-child(2) {
-    justify-content: center;
-    display: flex;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 .wrap {
@@ -78,7 +61,7 @@ img {
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-    width:  100%;
+    width: 100%;
     padding: 20px;
 }
 
@@ -88,23 +71,32 @@ img {
     border-bottom: 4px solid red;
 }
 
-.addCampanhaButton{
+.addCampanhaButton {
     margin-bottom: 20px;
 }
 
 .title {
     font-weight: bold;
+    text-transform: uppercase;
+}
+
+.card-title {
+    /* border-bottom: 0.1px solid #bbabab; */
+    width: 100%;
+    margin: 1rem auto;
+}
+
+.tr {
+    border-top: 0.1px solid #bbabab;
+    padding: 1.3rem;
 }
 
 @media screen and (max-width: 480px) {
-
     img {
         min-width: 150px;
         min-height: 150px
     }
-
     mat-card {
         margin: 15px 10px;
     }
-
 }

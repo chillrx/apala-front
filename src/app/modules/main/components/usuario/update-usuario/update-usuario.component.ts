@@ -41,7 +41,7 @@ export class UpdateUsuarioComponent implements OnInit {
                 panelClass: ['error']
             }));
 
-        this._crud.put('usuarios' + '/' + this.data.id, this.usuarioForm.value).then(res => {
+        this._crud.put('usuario' + '/' + this.data.id, this.usuarioForm.value).then(res => {
 
             this.snackbar.open('Dados alterados com sucesso!', '', {
                 duration: 2000,

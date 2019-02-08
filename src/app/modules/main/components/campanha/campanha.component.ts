@@ -56,17 +56,17 @@ export class CampanhaComponent implements OnInit {
 
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
-                this._crud.delete('campanha/' + this.campanhas[i].id).then(res =>
+                this._crud.delete('campanha/' + this.campanhas[i].id).then(res => {
+                    this.getForm();
                     this.snackbar.open('Dados deletados com sucesso!', '', {
                         duration: 2000,
                         panelClass: ['success']
                     })
-                    , rej => this.snackbar.open('Erro ao deletar os dados!', '', {
-                        duration: 2000,
-                        panelClass: ['error']
-                    }));
+                }, rej => this.snackbar.open('Erro ao deletar os dados!', '', {
+                    duration: 2000,
+                    panelClass: ['error']
+                }));
 
-                this.getForm();
             }
         });
     }

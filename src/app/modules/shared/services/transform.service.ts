@@ -17,8 +17,6 @@ export class TransformService {
     (month < 10) ? finalMonth = '0' + month : finalMonth = month;
     (day < 10) ? finalDate = '0' + day : finalDate = day;
 
-    finalDate += 1;
-
     return (finalDate + '/' + finalMonth + '/' + newDate.getFullYear());
   }
 

@@ -13,12 +13,12 @@
   <div class="flex">
     <mat-form-field appearance="outline" color="warn">
       <mat-label>Data de início</mat-label>
-      <input matInput placeholder="Digite a data de início e hora" minlength="10" formControlName="inicio" [textMask]="{mask: dateAndHour}" required>
+      <input matInput placeholder="Digite a data de início e hora" minlength="10" formControlName="inicio"  pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" [textMask]="{mask: date}" required>
     </mat-form-field>
 
     <mat-form-field appearance="outline" color="warn">
       <mat-label>Data de fim</mat-label>
-      <input matInput placeholder="Digita a data final e hora" formControlName="fim" [textMask]="{mask: dateAndHour}" required>
+      <input matInput placeholder="Digita a data final e hora" formControlName="fim" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" [textMask]="{mask: date}" required>
     </mat-form-field>
   </div>
 

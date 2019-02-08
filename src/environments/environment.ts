@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  authenticationServiceUrl: 'https://apala-api.herokuapp.com/api/usuarios/login',
-  crudServiceUrl: 'https://apala-api.herokuapp.com/api/'
+  authenticationServiceUrl: 'http://localhost:8000/api/usuarios/login',
+  crudServiceUrl: 'http://localhost:8000/api/'
 };

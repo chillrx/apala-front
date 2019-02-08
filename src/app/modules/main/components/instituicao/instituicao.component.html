@@ -1,13 +1,17 @@
 <mat-card class="overall-card">
+
     <button mat-mini-fab color="warn" class="addCampanhaButton" (click)="addInstituicao()">
+
         <mat-icon>add</mat-icon>
+
     </button>
 
     <div class="wrap justify-center">
+        
         <mat-card class="campanha-card" *ngFor="let instituicao of instituicoes; let i = index">
 
 
-            <div class="flex justify-between wd100">
+            <div class="flex justify-between wd100 card-title">
 
                 <p></p>
 
@@ -17,17 +21,26 @@
 
             </div>
 
-            <div class="flex-wrap">
+            <div class="flex-wrap wd100 tr">
+
                 <div>
+
                     <p>
                         {{ instituicao.descricao }}
                     </p>
+
                 </div>
 
-                <div>
-                    <button mat-button (click)="editInstituicao(i)">Editar</button>
+                <div class="flex justify-end">
+
+                    <button mat-raised-button color="warn" (click)="editInstituicao(i)">Editar</button>
+
                 </div>
+
             </div>
+
         </mat-card>
+
     </div>
+
 </mat-card>

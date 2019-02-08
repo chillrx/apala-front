@@ -11,7 +11,7 @@ import { TransformService } from 'src/app/modules/shared/services/transform.serv
 })
 export class UpdateCampanhaComponent implements OnInit {
     public campanhaForm: FormGroup;
-    public dateAndHour = [/[0-9]/, /[0-9]/, '/', /[0-9]/, /[0-9]/, '/', /[0-9]/, /[0-9]/, /[0-9]/, /[0-9]/];
+    public date = [/[0-9]/, /[0-9]/, '/', /[0-9]/, /[0-9]/, '/', /[0-9]/, /[0-9]/, /[0-9]/, /[0-9]/];
 
     constructor(
         private _crud: CrudService,
