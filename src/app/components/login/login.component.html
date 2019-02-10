@@ -5,7 +5,7 @@
 
       <mat-form-field appearance="outline">
         <mat-icon matPrefix>person</mat-icon>
-        <input matInput formControlName="user" placeholder="Email" required>
+        <input matInput formControlName="user" placeholder="Email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,3}$" required>
       </mat-form-field>
 
       <mat-form-field appearance="outline">

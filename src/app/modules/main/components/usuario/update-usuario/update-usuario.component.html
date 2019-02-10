@@ -14,7 +14,7 @@
 
   <mat-form-field appearance="outline" color="warn">
     <mat-label>Email</mat-label>
-    <input matInput placeholder="Endereço de email" formControlName="email" autocomplete="new-password" required>
+    <input matInput placeholder="Endereço de email" formControlName="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,3}$" autocomplete="new-password" required>
   </mat-form-field>
 
   <mat-form-field appearance="outline" color="warn">
