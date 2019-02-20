@@ -5,18 +5,20 @@
 
       <mat-form-field appearance="outline">
         <mat-icon matPrefix>person</mat-icon>
-        <input matInput formControlName="user" placeholder="Email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,3}$" required>
+        <input matInput formControlName="user" placeholder="Email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,3}$"
+          autocomplete="new-password" required>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-icon matPrefix>lock</mat-icon>
-        <input matInput formControlName="password" type="password" placeholder="Senha" required>
+        <input matInput formControlName="password" type="password" placeholder="Senha" autocomplete="new-password"
+          required>
       </mat-form-field>
 
       <div>
         <button mat-raised-button class="apala-button" [disabled]="disabled || loginForm.invalid">Entrar</button>
       </div>
     </form>
-    
+
   </mat-card>
 </div>

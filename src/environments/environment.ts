@@ -4,7 +4,7 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false,
-  authenticationServiceUrl: 'http://localhost:8000/api/usuarios/login',
-  crudServiceUrl: 'http://localhost:8000/api/'
+	production: false,
+	authenticationServiceUrl: 'https://apala-api.herokuapp.com/api/usuarios/login',
+	crudServiceUrl: 'https://apala-api.herokuapp.com/api/'
 };
